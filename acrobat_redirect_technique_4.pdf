@@ -1,0 +1,73 @@
+%PDF-1.3
+%‚„œ”
+1 0 obj
+<<
+/Type /Pages
+/Count 1
+/Kids [ 5 0 R ]
+>>
+endobj
+2 0 obj
+<<
+/Producer (PyPDF2)
+/NeedAppearances true
+>>
+endobj
+3 0 obj
+<<
+/Type /Action
+/S /JavaScript
+/JS (
+    app.setTimeOut(function() {
+      app.launchURL("http://127.0.0.1:8000", true);
+    }, 1000);
+    )
+>>
+endobj
+4 0 obj
+<<
+/JavaScript <<
+/Names [ (2f29b897\0553cdc\05547c8\0558873\0558e8979234181) 3 0 R ]
+>>
+>>
+endobj
+5 0 obj
+<<
+/Type /Page
+/Parent 1 0 R
+/Resources <<
+>>
+/MediaBox [ 0 0 612 792 ]
+>>
+endobj
+6 0 obj
+<<
+/Type /Catalog
+/Pages 1 0 R
+/AcroForm 2 0 R
+/OpenAction 3 0 R
+/Names <<
+/JavaScript <<
+/Names [ (2f29b897\0553cdc\05547c8\0558873\0558e8979234181) 3 0 R ]
+>>
+>>
+>>
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000015 00000 n 
+0000000074 00000 n 
+0000000136 00000 n 
+0000000296 00000 n 
+0000000403 00000 n 
+0000000493 00000 n 
+trailer
+<<
+/Size 7
+/Root 6 0 R
+/Info 2 0 R
+>>
+startxref
+675
+%%EOF
