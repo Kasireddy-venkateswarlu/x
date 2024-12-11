@@ -1,11 +1,15 @@
 import smtplib
 
-def send_spoofed_email(smtp_server, port, from_address, to_address, subject, message):
+def send_authenticated_email(smtp_server, port, username, password, from_address, to_address, subject, message):
     try:
         # Set up the SMTP connection
         server = smtplib.SMTP(smtp_server, port)
         server.ehlo()  # Identify yourself to the SMTP server
-        # Note: No authentication for this example as SMTP server is on port 25 and might not require it
+        server.starttls()  # Upgrade the connection to secure (if supported)
+        server.ehlo()
+
+        # Log in to the server
+        server.login(username, password)
 
         # Construct the email headers and body
         email_message = f"""\
@@ -18,7 +22,7 @@ Subject: {subject}
         # Send the email
         server.sendmail(from_address, [to_address], email_message)
         print("Email sent successfully!")
-        
+
         # Close the SMTP connection
         server.quit()
     except Exception as e:
@@ -27,11 +31,12 @@ Subject: {subject}
 # Configuration
 smtp_server = "10.2.2.3"
 port = 25
+username = "your_username"
+password = "your_password"
 from_address = "spoofed@example.com"
 to_address = "target@example.com"
-subject = "Test Email"
-message = "This is a test email with a spoofed sender address."
+subject = "Test Email with Authentication"
+message = "This is a test email with a spoofed sender address, authenticated with SMTP credentials."
 
-# Send the spoofed email
-send_spoofed_email(smtp_server, port, from_address, to_address, subject, message)
-
+# Send the authenticated email
+send_authenticated_email(smtp_server, port, username, password, from_address, to_address, subject, message)
