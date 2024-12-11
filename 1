@@ -1,14 +1,11 @@
 import smtplib
 
-def send_authenticated_email_no_starttls(smtp_server, port, username, password, from_address, to_address, subject, message):
+def send_email_no_auth(smtp_server, port, from_address, to_address, subject, message):
     try:
-        # Set up the SMTP connection without STARTTLS
+        # Set up the SMTP connection without authentication
         server = smtplib.SMTP(smtp_server, port)
         server.ehlo()  # Identify yourself to the SMTP server
         
-        # Log in to the server
-        server.login(username, password)
-
         # Construct the email headers and body
         email_message = f"""\
 From: {from_address}
@@ -29,12 +26,10 @@ Subject: {subject}
 # Configuration
 smtp_server = "10.2.2.3"
 port = 25
-username = "your_username"
-password = "your_password"
 from_address = "spoofed@example.com"
 to_address = "target@example.com"
-subject = "Test Email without STARTTLS"
-message = "This is a test email with a spoofed sender address, authenticated without STARTTLS."
+subject = "Test Email without Authentication"
+message = "This is a test email sent without authentication."
 
-# Send the authenticated email
-send_authenticated_email_no_starttls(smtp_server, port, username, password, from_address, to_address, subject, message)
+# Send the email
+send_email_no_auth(smtp_server, port, from_address, to_address, subject, message)
