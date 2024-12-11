@@ -1,13 +1,11 @@
 import smtplib
 
-def send_authenticated_email(smtp_server, port, username, password, from_address, to_address, subject, message):
+def send_authenticated_email_no_starttls(smtp_server, port, username, password, from_address, to_address, subject, message):
     try:
-        # Set up the SMTP connection
+        # Set up the SMTP connection without STARTTLS
         server = smtplib.SMTP(smtp_server, port)
         server.ehlo()  # Identify yourself to the SMTP server
-        server.starttls()  # Upgrade the connection to secure (if supported)
-        server.ehlo()
-
+        
         # Log in to the server
         server.login(username, password)
 
@@ -35,8 +33,8 @@ username = "your_username"
 password = "your_password"
 from_address = "spoofed@example.com"
 to_address = "target@example.com"
-subject = "Test Email with Authentication"
-message = "This is a test email with a spoofed sender address, authenticated with SMTP credentials."
+subject = "Test Email without STARTTLS"
+message = "This is a test email with a spoofed sender address, authenticated without STARTTLS."
 
 # Send the authenticated email
-send_authenticated_email(smtp_server, port, username, password, from_address, to_address, subject, message)
+send_authenticated_email_no_starttls(smtp_server, port, username, password, from_address, to_address, subject, message)
